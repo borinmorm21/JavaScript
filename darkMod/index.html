@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="title"></h1>
+    <button id="darkMode" onclick="toggleDarkMode()">Click Me</button>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.getElementsByTagName("body")[0];
+            const button = document.getElementById("darkMode");
+            const title = document.getElementById("title");
+
+            if (body.classList.contains("darkMode")) {
+                // Switch to Light Mode
+                body.classList.remove("darkMode");
+                button.innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/740/740878.png">`;
+                title.innerHTML = "Light Mode"
+            } else {
+                // Switch to Dark Mode
+                body.classList.add("darkMode");
+                button.innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/3073/3073665.png">`;
+                title.innerHTML = "Dark Mode"
+            }
+        }
+    </script>
+</body>
+</html>

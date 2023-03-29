@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercise</h1>
+    <!-- input values -->
+    <input type="text" placeholder="Enter a number" id="num1">
+    <input type="text" placeholder="Enter a number" id="num2"><br><br>
+
+    <!-- submit button -->
+    <button type="submit" onclick="submit()">Submit</button>
+    <!-- reset button -->
+    <button id="reset">reset</button>
+
+    <!-- the output -->
+    <p id="output"></p>
+
+
+    <script>
+        function submit() {
+            //get value from input <tag>
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+
+            if(isNaN(num1) || isNaN(num2)){
+                document.getElementById("output").innerHTML = `Please enter a valid number`;
+                return;
+            }
+
+            let largestNum, typeOfNum;
+            if(num1 > num2){
+                largestNum = num1;
+            } else {
+                largestNum = num2;
+            }
+
+            if(largestNum % 2 ==0){
+                typeOfNum = 'even';
+            } else {
+                typeOfNum = 'odd';
+            }
+
+            if(num1 === num2){
+                document.getElementById("output").innerHTML = `Both number are equal and it's also an ${typeOfNum} number.`
+            } else {
+                document.getElementById("output").innerHTML = `${largestNum} is the largest number and it's also an ${typeOfNum} number.`
+            }
+
+            // Add event listener for reset button 
+            const resetBtn = document.getElementById("reset").addEventListener("click", function () {
+                document.getElementById("num1").value = "";
+                document.getElementById("num2").value = "";
+                document.getElementById("output").innerHTML = "";
+            });
+        }
+    </script>
+</body>
+
+</html>
